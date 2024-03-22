@@ -13,11 +13,10 @@ if __name__ == "__main__":
              .appName("ElectionAnalysis")
              .master("local[*]")  # Use local Spark execution with all available cores
              .config("spark.jars.packages",
-                     "org.apache.spark:spark-sql-kafka-0-10_2.13:3.5.0")  # Spark-Kafka integration
+                     "org.apache.spark:spark-sql-kafka-0-10_2.13:3.5.0")
              .config("spark.jars",
-                     "/Users/airscholar/Dev/Projects/Python/Voting/postgresql-42.7.1.jar")  # PostgreSQL driver
-             .config("spark.sql.adaptive.enabled", "false")  # Disable adaptive query execution
-             .getOrCreate())
+                     "/Users/airscholar/Dev/Projects/Python/Voting/postgresql-42.7.1.jar")
+             .config("spark.sql.adaptive.enabled", "false").getOrCreate())
 
     # Define schemas for Kafka topics
     vote_schema = StructType([
